@@ -1,4 +1,4 @@
-export { render }
+export default onRenderHtml
 // See https://vike.dev/data-fetching
 export const passToClient = ['pageProps', 'urlPathname']
 
@@ -9,7 +9,7 @@ import type { PageContextServer } from './types'
 import { ColorSchemeScript as MantineColorSchemeScript } from '@mantine/core';
 import { Layout } from './Layout'
 
-async function render(pageContext: PageContextServer) {
+async function onRenderHtml(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext
   // This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
